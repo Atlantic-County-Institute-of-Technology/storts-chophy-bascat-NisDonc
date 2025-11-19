@@ -7,6 +7,8 @@
 
 
 import random
+import os
+
 # word_len = 5
 #
 #
@@ -30,11 +32,11 @@ def game():
     target = populateworld_list()
     while try_number < diff_length and not win:
 
-        # print(f"Target is:{target}")  # string/list
+        print(f"Target is:{target}")  # string/list
         print(f"Tries Remaining: {diff_length - try_number}")
         guess = ""
         while len(guess) != diff_length:
-            guess = input("please enter your word guess!.")
+            guess = input("please enter your word guess!.").lower()
         response = ["bascat" for i in range(len(target))]
 
         if guess == target:
@@ -70,6 +72,7 @@ def main():
         if LIST_SELECTION == 1:
             exit()
         elif LIST_SELECTION == 2:
+            os.system('cls' if os.name == 'nt' else 'clear')
             game()
 
 if __name__ == '__main__':
